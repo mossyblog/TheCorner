@@ -56,5 +56,12 @@ void AAINPC::Tick(const float DeltaTime)
 	Super::Tick(DeltaTime);
 	// Filter for all actors that have a movement component
 	FFilter Filter = FFilter::Make<FDestination>();
-	TSharedRef<TChain<TChunkIt<FSubjectHandle>, TBeltIt<FSubjectHandle>, EParadigm::Safe>> SolidChain = Enchain(Filter);
+	TSharedRef<TChain<TChunkIt<FSolidSubjectHandle>, TBeltIt<FSolidSubjectHandle>>> SolidChain = EnchainSolid(Filter);
+	int Counter = 0;
+	SolidChain->OperateConcurrently([&Counter](FSolidSubjectHandle Subject,  FSubjectPosition CurrentPos, FDestination Destination)
+	{
+		Counter += CurrentPos.Total+1;
+		UE_LOG(LogTemp, Warning, TEXT("Mech: %s"), TEXT("Mech Running"))
+		
+	}, /*Maximum number of threads=*/4, /*Minimum number of Subjects=*/8);
 }
