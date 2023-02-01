@@ -19,6 +19,7 @@ class THECORNER_API AAINPC : public AMechanicalActor
 	virtual void BeginPlay() override;
 public:
 	AAINPC();
+	void SpawnSubjectiveActorWithTrait() ;
 
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="MoveRandomly")
