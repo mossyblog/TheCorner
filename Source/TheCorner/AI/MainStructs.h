@@ -14,7 +14,12 @@ struct FSubjectPosition
 
 	UPROPERTY(BlueprintReadWrite)
 	int32 Total;
-	
+
+	UPROPERTY(BlueprintReadWrite)
+	FString DisplayName;
+
+	UPROPERTY(BlueprintReadWrite)
+	FColor Color;
 };
 
 // Here we have a struct that will house our move target

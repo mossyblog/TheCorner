@@ -8,7 +8,9 @@ public class TheCorner : ModuleRules
 	{
 		PrivateDependencyModuleNames.AddRange(new string[] { "ApparatusRuntime" });
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
-
+		PrivatePCHHeaderFile = "MaulProtoPrecompiled.h";
+		MinFilesUsingPrecompiledHeaderOverride = 1;
+		bUseUnity = false;
         PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "HeadMountedDisplay", "NavigationSystem", "AIModule", "Niagara", "EnhancedInput" });
     }
 }
