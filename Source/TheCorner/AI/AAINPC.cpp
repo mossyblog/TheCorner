@@ -150,9 +150,6 @@ void AAINPC::GetNewDestination()
 	// 1. Make a filter of subjects who have finished moving
 	FFilter Filter = FFilter::Make<FFinishedMoving>();
 
-	// 2. Make our chain
-	//FChain* Chain = Enchain(Filter);
-
 	// 3. Operate!
 	Enchain(Filter)->Operate([&](FSubjectHandle CurrentSubject)
 	{
